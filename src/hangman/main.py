@@ -1,9 +1,14 @@
 import random
-strings= ["bee keeper","Work Man","India","Cricket","Tony Stark","Super Saint"]
-str = random.choice(strings)
+from hangman_words import word_list
+from hangman_art import logo
+from hangman_art import stages
+hangman_len = len(stages) - 1
+str = random.choice(word_list)
 str_len = len(str)
 lists=[]
 output=[]
+print("Welcome to Hangman game")
+print(logo)
 for i in range(0,str_len):
     if(str[i]== " "):
         continue
@@ -29,10 +34,12 @@ while condition==True:
           continue
     if(check_variable==False):
       count+=1
-      print(count)
+      print(stages[hangman_len])
+      hangman_len -= 1
+
     if(game==length):
         print("Game win")
     if(count==6):
       print("Game over")
-      print(f"The word is {lists}")
+      print(f"The word is {str}")
       break;
