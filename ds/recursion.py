@@ -28,6 +28,12 @@ def power_0f_num(x,y):
    else:
        return x * power_0f_num(x,y-1)
 
+def dectobin(x):
+    if x == 0:
+        return 0
+    else:
+        return x%2 +10 * dectobin(int(x/2))
+
 num = int(input("Enter the number:"))
 pow = int(input("Enter the power:"))
 print(power_0f_num(num,pow))
